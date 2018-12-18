@@ -41,6 +41,6 @@ npm test
 - --inline 表示inline模式
 - --progress 显示打包的进度
 - --config 后面跟配置文件，可以看到，主配置文件是build/webpack.dev.conf.js
-
+关于webpack-dev-server的自动刷新模式，可以看[这里](https://github.com/NickChuCode/vn-template/issues/1)
 ## webpack.dev.conf.js
 
