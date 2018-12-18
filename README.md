@@ -37,5 +37,10 @@ npm test
   },
 ```
 
-其中，webpack-dev-server是一个单独的npm包，是一个小型的Node.js Express服务器,它使用webpack-dev-middleware来服务于webpack的包,除此自外，它还有一个通过Sock.js来连接到服务器的微型运行时.
---inline 表示inline模式
+- 其中，webpack-dev-server是一个单独的npm包，是一个小型的Node.js Express服务器,它使用webpack-dev-middleware来服务于webpack的包,除此自外，它还有一个通过Sock.js来连接到服务器的微型运行时.
+- --inline 表示inline模式
+- --progress 显示打包的进度
+- --config 后面跟配置文件，可以看到，主配置文件是build/webpack.dev.conf.js
+
+## webpack.dev.conf.js
+
