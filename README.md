@@ -45,7 +45,7 @@ npm test
 - --config 后面跟配置文件，可以看到，主配置文件是build/webpack.dev.conf.js
 关于webpack-dev-server的自动刷新模式，可以看[这里](https://github.com/NickChuCode/vn-template/issues/1)
 
-## webpack.dev.conf.js
+## 1 webpack.dev.conf.js
 > webpack开发环境配置
 
 这个文件主要做了以下几件事情：
@@ -55,10 +55,10 @@ npm test
 4. 最后导出了一个Promise，根据配置的端口，寻找可用的端口来启动服务。
 具体的注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/webpack.dev.conf.js)
 
-## utils.js
+## 1.1 utils.js
 > 工具函数
 
-build/webpack.dev.conf.js提到引入了build/utils.js工具函数。
+build/webpack.dev.conf.js引入了build/utils.js工具函数。
 该文件主要写了以下几个工具函数：
 1、assetsPath返回输出路径，
 2、cssLoaders返回相应的css-loader配置，
@@ -66,7 +66,17 @@ build/webpack.dev.conf.js提到引入了build/utils.js工具函数。
 4、createNotifierCallback创建启动服务时出错时提示信息回调。
 具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/utils.js)
 
-## build.js
+## 1.2 webpack.base.conf.js
+> webpack基本配置文件
+
+build/webpack.dev.conf.js引入了build/webpack.base.conf.js这个webpack基本配置文件。
+这个文件主要做了以下几件事情：
+1、引入各种插件、配置等，其中引入了build/vue-loader.conf.js相关配置，
+2、创建eslint规则配置，默认启用，
+3、导出webpack配置对象，其中包含context，入口entry，输出output，resolve，module下的rules（处理对应文件的规则），和node相关的配置等。
+具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/webpack.base.conf.js)
+
+## 2 build.js
 > npm run build 指定的运行文件
 
 这个文件主要做了以下几件事情：
@@ -75,7 +85,7 @@ build/webpack.dev.conf.js提到引入了build/utils.js工具函数。
 3、先控制台输出loading，删除dist目录下的文件，开始构建，构建失败和构建成功都给出相应的提示信息。
 具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/build.js)
 
-## check-versions.js
+## 2.1 check-versions.js
 > 检查node 和 npm 版本
 
 这个文件主要引入了一些插件和配置，最后导出一个函数，版本不符合预期就输出警告。
