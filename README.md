@@ -24,7 +24,9 @@ npm run unit
 npm test
 ```
 
-## 入口
+## package.json
+> 分析一个项目，一般从package.json的命令入口scripts开始。
+
 入口文件可以从package.json中看到，涵盖了开发，构建，单元测试，启动等各个方面
 ``` bash
 "scripts": {
@@ -42,6 +44,7 @@ npm test
 - --progress 显示打包的进度
 - --config 后面跟配置文件，可以看到，主配置文件是build/webpack.dev.conf.js
 关于webpack-dev-server的自动刷新模式，可以看[这里](https://github.com/NickChuCode/vn-template/issues/1)
+
 ## webpack.dev.conf.js
 > webpack开发环境配置
 
@@ -50,8 +53,18 @@ npm test
 2. 合并build/webpack.base.conf.js配置文件，
 3. 配置开发环境一些devServer，plugin等配置，
 4. 最后导出了一个Promise，根据配置的端口，寻找可用的端口来启动服务。
-
 具体的注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/webpack.dev.conf.js)
+
+## utils.js
+> 工具函数
+
+build/webpack.dev.conf.js提到引入了build/utils.js工具函数。
+该文件主要写了以下几个工具函数：
+1、assetsPath返回输出路径，
+2、cssLoaders返回相应的css-loader配置，
+3、styleLoaders返回相应的处理样式的配置，
+4、createNotifierCallback创建启动服务时出错时提示信息回调。
+具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/utils.js)
 
 ## build.js
 > npm run build 指定的运行文件
@@ -60,7 +73,6 @@ npm test
 1、引入build/check-versions文件，检查node和npm的版本，
 2、引入相关插件和配置，其中引入了webpack生产环境的配置build/webpack.prod.conf.js，
 3、先控制台输出loading，删除dist目录下的文件，开始构建，构建失败和构建成功都给出相应的提示信息。
-
 具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/build.js)
 
 ## check-versions.js

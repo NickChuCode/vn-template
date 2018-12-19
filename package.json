@@ -1,14 +1,16 @@
 {
   "name": "vn-template",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "vue cli 2.x init webpack生成的webpack配置解读",
   "author": "NickChuCode <nickchu15@outlook.com>",
   "private": true,
   "scripts": {
+    // dev webpack-dev-server --inline 模式 --progress 显示进度 --config 指定配置文件（默认是webpack.config.js）
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
+    // eslint --ext 指定扩展名和相应的文件
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js"
   },
