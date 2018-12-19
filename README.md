@@ -100,5 +100,26 @@ build/webpack.dev.conf.js提到引入了build/vue-loader.conf.js。
 > 检查node 和 npm 版本
 
 这个文件主要引入了一些插件和配置，最后导出一个函数，版本不符合预期就输出警告。
-
 具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/check-versions.js)
+
+## 2.2 webpack.prod.conf.js
+> webpack 生产环境配置
+
+build/build.js提到，引入了这个配置文件。
+这个文件主要做了以下几件事情：
+1、引入一些插件和配置，其中引入了build/webpack.base.conf.js webpack基本配置文件，
+2、用DefinePlugin定义环境，
+3、合并基本配置，定义自己的配置webpackConfig，配置了一些modules下的rules，devtools配置，output输出配置，一些处理js、提取css、压缩css、输出html插件、提取公共代码等的
+plugins，
+4、如果启用gzip，再使用相应的插件处理，
+5、如果启用了分析打包后的插件，则用webpack-bundle-analyzer，
+6、最后导出这份配置。
+具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/webpack.prod.conf.js)
+
+至此，npm run dev和npm run build两个主要的script就分析完了
+
+## .babelrc
+> babel相关配置
+
+具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/.babelrc)
+
