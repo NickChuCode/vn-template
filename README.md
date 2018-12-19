@@ -76,9 +76,20 @@ build/webpack.dev.conf.js引入了build/webpack.base.conf.js这个webpack基本�
 3、导出webpack配置对象，其中包含context，入口entry，输出output，resolve，module下的rules（处理对应文件的规则），和node相关的配置等。
 具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/webpack.base.conf.js)
 
+## 1.2.1 vue-loader.conf.js
+> vue-loader配置文件
+
+build/webpack.dev.conf.js提到引入了build/vue-loader.conf.js。
+这个文件主要导出了一份Vue-loader的配置，
+主要有：loaders，cssSourceMap，cacheBusting，transformToRequire
+具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/vue-loader.conf.js)
+
+看完了这些文件相应配置，开发环境的相关配置就串起来了。其中config/文件夹下的配置都已经注释在build/文件夹下的对应的文件中，所以就不单独说明了。
+
 ## 2 build.js
 > npm run build 指定的运行文件
 
+下面看package.json的scripts中的npm run build配置，node build/build.js，其实就是用node去执行build/build.js文件。
 这个文件主要做了以下几件事情：
 1、引入build/check-versions文件，检查node和npm的版本，
 2、引入相关插件和配置，其中引入了webpack生产环境的配置build/webpack.prod.conf.js，
