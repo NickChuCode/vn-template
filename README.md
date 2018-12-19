@@ -63,3 +63,9 @@ npm test
 
 具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/build.js)
 
+## check-versions.js
+> 检查node 和 npm 版本
+
+这个文件主要引入了一些插件和配置，最后导出一个函数，版本不符合预期就输出警告。
+
+具体注释看[这里](https://github.com/NickChuCode/vn-template/blob/master/build/check-versions.js)
